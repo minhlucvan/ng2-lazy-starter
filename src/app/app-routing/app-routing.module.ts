@@ -1,5 +1,4 @@
 import { CustomPreloader } from './custom.preloader';
-import { PageNotFoundComponent } from './../shared/components/page-not-found/page-not-found.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -12,8 +11,15 @@ const routes: Routes = [
     }
   },
   {
+    path: 'error',
+    loadChildren: 'app/containers/error/error.module#ErrorModule',
+    data: {
+      preload: true
+    }
+  },
+  {
     path: '**',
-    component: PageNotFoundComponent
+    redirectTo: '/error/404'
   }
 ];
 

@@ -28,19 +28,15 @@ import { storeFreeze } from 'ngrx-store-freeze';
  * More: https://egghead.io/lessons/javascript-redux-implementing-combinereducers-from-scratch
  */
 import { combineReducers } from '@ngrx/store';
-
-
-export interface State {
-  router: fromRouter.RouterState;
-}
-
+import { AppState } from './app.state';
 
 export const initReducers = {
   router: fromRouter.routerReducer,
 };
 
-const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(initReducers);
-const productionReducer: ActionReducer<State> = combineReducers(initReducers);
+
+const developmentReducer: ActionReducer<AppState> = compose(storeFreeze, combineReducers)(initReducers);
+const productionReducer: ActionReducer<AppState> = combineReducers(initReducers);
 
 export function reducer(state: any, action: any) {
   if (environment.production) {

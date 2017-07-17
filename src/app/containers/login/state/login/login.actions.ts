@@ -3,8 +3,8 @@ import { Action } from '@ngrx/store';
 
 const PREFIX = '[LOGIN] ';
 const LOGIN = PREFIX + 'login';
-const LOGIN_SUCCESS = PREFIX + 'login_success';
-const LOGIN_FAIL = PREFIX + 'login_fail';
+const LOGIN_SUCCESS = PREFIX + 'login success';
+const LOGIN_FAIL = PREFIX + 'login fail';
 
 // actions
 export class LoginAction implements Action {
